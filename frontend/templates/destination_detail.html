@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+
+{% block title %}{{ destination.name }} - Du Lịch Việt{% endblock %}
+
+{% block content %}
+<div class="page-header" style="background: linear-gradient(to right, rgba(0,123,255,0.7), rgba(13,110,253,0.7)), url('{{ destination.image_url }}'); background-size: cover; background-position: center;">
+    <div class="container">
+        <h1 class="display-4 text-white">{{ destination.name }}</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}" class="text-white">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'core:destinations' %}" class="text-white">Điểm đến</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">{{ destination.name }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Giới thiệu về {{ destination.name }}</h2>
+                        <p class="card-text">{{ destination.description }}</p>
+                    </div>
+                </div>
+                
+                <h3 class="mb-4">Tour du lịch {{ destination.name }}</h3>
+                <div class="row">
+                    {% for tour in tours %}
+                        <div class="col-md-6 mb-4">
+                            {% include 'components/tour_card.html' with tour=tour %}
+                        </div>
+                    {% empty %}
+                        <div class="col-12">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i> Hiện không có tour nào đến {{ destination.name }}.
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                {% if tours %}
+                    <div class="text-center mt-4">
+                        <a href="{% url 'tours:tours_by_destination' destination.slug %}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-eye me-2"></i> Xem tất cả tour {{ destination.name }}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Thông tin {{ destination.name }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ destination.image_url }}" class="img-fluid rounded mb-3" alt="{{ destination.name }}">
+                        <p class="text-muted">{{ destination.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

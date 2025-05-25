@@ -1,0 +1,53 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Tất cả điểm đến - Du Lịch Việt{% endblock %}
+
+{% block content %}
+<div class="page-header bg-primary text-white">
+    <div class="container">
+        <h1 class="display-4">Tất cả điểm đến</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}" class="text-white">Trang chủ</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Điểm đến</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            {% for destination in destinations %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="{{ destination.image_url }}" class="card-img-top" alt="{{ destination.name }}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ destination.name }}</h5>
+                            <p class="card-text flex-grow-1">{{ destination.description|truncatewords:20 }}</p>
+                            <div class="mt-auto">
+                                <a href="{% url 'tours:tours_by_destination' destination.slug %}" class="btn btn-primary">
+                                    <i class="fas fa-map-marker-alt me-1"></i> Xem tour
+                                </a>
+                                <a href="{% url 'core:destination_detail' destination.slug %}" class="btn btn-outline-secondary ms-2">
+                                    Chi tiết
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12">
+                    <div class="alert alert-info text-center">
+                        <i class="fas fa-info-circle me-2"></i> Hiện chưa có điểm đến nào.
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        {% include 'components/pagination.html' with page_obj=destinations %}
+    </div>
+</section>
+{% endblock %}

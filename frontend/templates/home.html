@@ -61,7 +61,7 @@
             <p class="hero-subtitle">Trải nghiệm du lịch tuyệt vời với những tour chất lượng, giá cả hợp lý</p>
             <a href="{% url 'tours:tour_list' %}" class="btn btn-primary btn-lg">Khám phá ngay</a>
         </div>
-        
+
         <!-- Banner Image -->
        {% comment %} <div class="banner-image">
             <img src="https://plus.unsplash.com/premium_photo-1673288455625-fa00f5ff831f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Du Lịch Việt" class="img-fluid">
@@ -117,7 +117,7 @@
             <h2 class="section-title">Tour Nổi Bật</h2>
             <a href="{% url 'tours:tour_list' %}" class="btn btn-outline-primary">Xem tất cả</a>
         </div>
-        
+
         <div class="row">
             {% for tour in featured_tours %}
                 <div class="col-md-6 col-lg-3 mb-4">
@@ -137,9 +137,9 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="section-title">Điểm Đến Phổ Biến</h2>
-            <a href="{% url 'tours:tour_list' %}" class="btn btn-outline-primary">Xem tất cả</a>
+            <a href="{% url 'core:destinations' %}" class="btn btn-outline-primary">Xem tất cả</a>
         </div>
-        
+
         <div class="row">
             {% for destination in popular_destinations %}
                 <div class="col-md-6 col-lg-4 mb-4">
@@ -166,7 +166,7 @@
 <section class="py-5">
     <div class="container">
         <h2 class="section-title text-center mb-5">Tại Sao Chọn Du Lịch Việt?</h2>
-        
+
         <div class="row">
             <div class="col-md-3 mb-4 text-center">
                 <div class="p-4">
@@ -204,7 +204,7 @@
 <section class="py-5 bg-light">
     <div class="container">
         <h2 class="section-title text-center mb-5">Khách Hàng Nói Gì Về Chúng Tôi</h2>
-        
+
         <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
