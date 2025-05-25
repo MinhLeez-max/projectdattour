@@ -40,10 +40,3 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-## Tạo dữ liệu mẫu
-
-```bash
-cd backend
-python create_destinations.py
-python create_tours.py
-```
