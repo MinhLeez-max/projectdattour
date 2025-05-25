@@ -1,0 +1,1 @@
+web: gunicorn backend.tourapp.wsgi:application 

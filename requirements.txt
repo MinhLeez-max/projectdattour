@@ -1,0 +1,8 @@
+django>=5.2.1
+python-dotenv
+whitenoise
+Pillow
+django-cors-headers
+djangorestframework
+gunicorn
+dj-database-url 
