@@ -8,12 +8,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'your_secret_key'
+SECRET_KEY = 'django-insecure-#v8x!2g@p^mq7d$k9n&f3h+j6l*r4s8t1w5e7u9i0o2q4w6e8r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -25,6 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.core',
+    'apps.tours',
+    'apps.accounts',
+    'apps.bookings',
 ]
 
 MIDDLEWARE = [
@@ -37,7 +41,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'your_project.urls'
+ROOT_URLCONF = 'tourapp.urls'
 
 TEMPLATES = [
     {
@@ -55,7 +59,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'your_project.wsgi.application'
+WSGI_APPLICATION = 'tourapp.wsgi.application'
 
 
 # Database
