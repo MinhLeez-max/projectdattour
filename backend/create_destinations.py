@@ -16,27 +16,27 @@ def create_destinations():
         {
             'name': 'Hà Nội',
             'description': 'Thủ đô ngàn năm văn hiến với nhiều di tích lịch sử',
-            'image_url': '/static/images/hanoi.jpg'
+            'image': 'https://images.unsplash.com/photo-1509475826633-fed577a2c71b?w=500&h=300&fit=crop'
         },
         {
             'name': 'Hạ Long',
             'description': 'Vịnh Hạ Long - Di sản thiên nhiên thế giới',
-            'image_url': '/static/images/halong.jpg'
+            'image': 'https://images.unsplash.com/photo-1528127269322-539801943592?w=500&h=300&fit=crop'
         },
         {
             'name': 'Sapa',
             'description': 'Vùng đất sương mù với ruộng bậc thang tuyệt đẹp',
-            'image_url': '/static/images/sapa.jpg'
+            'image': 'https://images.unsplash.com/photo-1566228015668-4c45dbc4e2f5?w=500&h=300&fit=crop'
         },
         {
             'name': 'Đà Nẵng',
             'description': 'Thành phố đáng sống với bãi biển đẹp',
-            'image_url': '/static/images/danang.jpg'
+            'image': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop'
         },
         {
             'name': 'Hội An',
             'description': 'Phố cổ với kiến trúc độc đáo',
-            'image_url': '/static/images/hoian.jpg'
+            'image': 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=500&h=300&fit=crop'
         }
     ]
     
@@ -45,7 +45,7 @@ def create_destinations():
             name=dest_data['name'],
             defaults={
                 'description': dest_data['description'],
-                'image_url': dest_data['image_url']
+                'image': dest_data['image']
             }
         )
         if created:
