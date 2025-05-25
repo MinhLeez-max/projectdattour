@@ -1,14 +1,18 @@
 {
     "builds": [
         {
-            "src": "backend/tourapp/wsgi.py",
+            "src": "vercel_app.py",
             "use": "@vercel/python"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "backend/tourapp/wsgi.py"
+            "dest": "vercel_app.py"
         }
-    ]
+    ],
+    "env": {
+        "PYTHONPATH": ".",
+        "DJANGO_SETTINGS_MODULE": "backend.tourapp.settings"
+    }
 } 
